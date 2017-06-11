@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Unlimited Tree View</string>
+    <string name="ic_keyboard_arrow_down">&#xe0c5;</string>
+    <string name="ic_keyboard_arrow_right">&#xe0c7;</string>
+</resources>
