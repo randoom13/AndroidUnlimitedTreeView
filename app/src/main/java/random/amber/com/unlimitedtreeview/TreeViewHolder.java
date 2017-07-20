@@ -31,14 +31,14 @@ public class TreeViewHolder extends RecyclerView.ViewHolder {
     public final TextView mTitle;
     public final View mMain;
     public final PrintView mIcon;
-    private WeakReference<MainActivity.TreeCursorAdapter> mAdapterWR;
+    private WeakReference<TreeCursorAdapter> mAdapterWR;
 
-    public TreeViewHolder(View view, MainActivity.TreeCursorAdapter adapter) {
+    public TreeViewHolder(View view, TreeCursorAdapter adapter) {
         super(view);
         mMain = view.findViewById(R.id.main);
         mIcon = (PrintView) view.findViewById(R.id.icon);
         mTitle = (TextView) view.findViewById(R.id.title);
-        mAdapterWR = new WeakReference<MainActivity.TreeCursorAdapter>(adapter);
+        mAdapterWR = new WeakReference<TreeCursorAdapter>(adapter);
     }
 
     void bindModel(Cursor cursor) {
@@ -55,7 +55,7 @@ public class TreeViewHolder extends RecyclerView.ViewHolder {
         mMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.TreeCursorAdapter adapter = mAdapterWR.get();
+                TreeCursorAdapter adapter = mAdapterWR.get();
                 if (null != adapter)
                     adapter.expanded(getPosition(), path, !isExpanded);
             }
