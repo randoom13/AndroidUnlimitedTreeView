@@ -16,27 +16,29 @@
 package random.amber.com.unlimitedtreeview;
 
 import android.database.Cursor;
-
-import random.amber.com.unlimitedtreeview.database.model.FlatModel;
-import random.amber.com.unlimitedtreeview.database.model.FlatModelParser;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.github.johnkil.print.PrintView;
 
+import java.lang.ref.WeakReference;
+
+import random.amber.com.unlimitedtreeview.database.model.FlatModel;
+import random.amber.com.unlimitedtreeview.database.model.FlatModelParser;
+
 public class TreeViewHolder extends RecyclerView.ViewHolder {
     public final TextView mTitle;
     public final View mMain;
     public final PrintView mIcon;
-    private MainActivity.TreeCursorAdapter mAdapter;
+    private WeakReference<MainActivity.TreeCursorAdapter> mAdapterWR;
 
     public TreeViewHolder(View view, MainActivity.TreeCursorAdapter adapter) {
         super(view);
         mMain = view.findViewById(R.id.main);
         mIcon = (PrintView) view.findViewById(R.id.icon);
         mTitle = (TextView) view.findViewById(R.id.title);
-        mAdapter = adapter;
+        mAdapterWR = new WeakReference<MainActivity.TreeCursorAdapter>(adapter);
     }
 
     void bindModel(Cursor cursor) {
@@ -53,7 +55,9 @@ public class TreeViewHolder extends RecyclerView.ViewHolder {
         mMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAdapter.expanded(getPosition(), path, !isExpanded);
+                MainActivity.TreeCursorAdapter adapter = mAdapterWR.get();
+                if (null != adapter)
+                    adapter.expanded(getPosition(), path, !isExpanded);
             }
         });
     }

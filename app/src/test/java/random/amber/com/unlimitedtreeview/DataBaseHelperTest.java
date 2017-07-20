@@ -62,22 +62,22 @@ public class DataBaseHelperTest{
     private void createModelInDB(String title, int nodeId, int priority, String path, boolean isGroup, boolean isExpanded) {
         SQLiteDatabase database = mDatebasehelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(mNodes.mName, title);
-        values.put(mNodes.mNodeId, nodeId);
-        values.put(mNodes.mPriority, priority);
-        values.put(mNodes.mIsGroup, isGroup ? 1 : 0);
+        values.put(mNodes.name, title);
+        values.put(mNodes.nodeId, nodeId);
+        values.put(mNodes.priority, priority);
+        values.put(mNodes.isGroup, isGroup ? 1 : 0);
         database.beginTransaction();
         database.insert(mNodes.getTableName(), null, values);
 
         values = new ContentValues();
-        values.put(mRelations.mItemId, nodeId);
-        values.put(mRelations.mPath, path);
-        values.put(mRelations.mLevel, PathHelper.getLevelFrom(path));
+        values.put(mRelations.itemId, nodeId);
+        values.put(mRelations.path, path);
+        values.put(mRelations.level, PathHelper.getLevelFrom(path));
         database.insert(mRelations.getTableName(), null, values);
 
         if (isExpanded && isGroup) {
             values = new ContentValues();
-            values.put(mExpanded.mGroupId, nodeId);
+            values.put(mExpanded.groupId, nodeId);
             database.insert(mExpanded.getTableName(), null, values);
         }
         database.setTransactionSuccessful();
@@ -105,7 +105,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{1, 2, 6}, true, "first item", false);
         assertTrue(mDatebasehelper.insertModel(model, 6, new int[]{1, 2, 6, 4}));
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mItemId, mRelations.mPath}, null, null, null,
+                new String[]{mRelations.itemId, mRelations.path}, null, null, null,
                 null, null);
         cursor.move(1);
         int id1 = cursor.getInt(0);
@@ -127,7 +127,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{3}, true, "first item", false);
         assertTrue(mDatebasehelper.insertModel(model, 6, new int[]{4}));
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mItemId, mRelations.mPath}, null, null, null,
+                new String[]{mRelations.itemId, mRelations.path}, null, null, null,
                 null, null);
         cursor.move(1);
         int id1 = cursor.getInt(0);
@@ -149,7 +149,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{3}, true, "first item", false);
         assertTrue(mDatebasehelper.addModel(model, 6, new int[]{4}) != null);
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mItemId, mRelations.mPath}, mRelations.mItemId + "= 14", null, null,
+                new String[]{mRelations.itemId, mRelations.path}, mRelations.itemId + "= 14", null, null,
                 null, null);
         cursor.moveToFirst();
         String path1 = cursor.getString(1);
@@ -165,7 +165,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{3}, true, "first item", false);
         assertTrue(mDatebasehelper.addModel(model, 6, new int[]{4}) != null);
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mPath}, mRelations.mItemId + "= 14", null, null,
+                new String[]{mRelations.path}, mRelations.itemId + "= 14", null, null,
                 null, null);
         cursor.moveToFirst();
         String path1 = cursor.getString(0);
@@ -181,7 +181,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{3}, true, "first item", false);
         assertTrue(mDatebasehelper.addModel(model, 6, new int[]{}) != null);
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mItemId, mRelations.mPath}, mRelations.mItemId + "= 14", null, null,
+                new String[]{mRelations.itemId, mRelations.path}, mRelations.itemId + "= 14", null, null,
                 null, null);
         cursor.moveToFirst();
         String path1 = cursor.getString(1);
@@ -197,7 +197,7 @@ public class DataBaseHelperTest{
         FlatModel model = new FlatModel(new int[]{4}, true, "first item", false);
         assertTrue(mDatebasehelper.addModel(model, 6, new int[]{}) != null);
         Cursor cursor = mDatebasehelper.getReadableDatabase().query(mRelations.getTableName(),
-                new String[]{mRelations.mItemId}, mRelations.mPath + " = 5", null, null,
+                new String[]{mRelations.itemId}, mRelations.path + " = 5", null, null,
                 null, null);
         cursor.moveToFirst();
         assertEquals(11, cursor.getInt(0));

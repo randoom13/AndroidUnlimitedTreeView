@@ -18,18 +18,18 @@ package random.amber.com.unlimitedtreeview.database.model;
 
 public class FlatModel {
     public final static String PATH_DIVIDER = ",";
-    final Boolean mIsExpanded;
-    final Boolean mIsGroup;
-    final String mTitle;
+    private final Boolean mIsExpanded;
+    private final Boolean mIsGroup;
+    private final String title;
     private String mPath;
     private int mLevel;
     private int mPriority;
 
     FlatModel(String path, Boolean isGroup, String title, Boolean isExpanded) {
         setPath(path);
-        mIsGroup = isGroup;
-        mTitle = title;
-        mIsExpanded = isExpanded;
+        this.mIsGroup = isGroup;
+        this.title = title;
+        this.mIsExpanded = isExpanded;
     }
 
     public FlatModel(int[] path, Boolean isGroup, String title, Boolean isExpanded) {
@@ -66,7 +66,7 @@ public class FlatModel {
     }
 
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     public Boolean getIsExpanded() {

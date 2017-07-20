@@ -16,10 +16,10 @@
 package random.amber.com.unlimitedtreeview.database.tables;
 
 public class ItemsRelationsTableInfo extends BaseTableInfo {
-    public final String mPath = "path";
-    public final String mItemId = "item_id";
-    public final String mLevel = "level";
-    public final String mVisible = "visible";
+    public final String path = "path";
+    public final String itemId = "item_id";
+    public final String level = "level";
+    public final String visible = "visible";
 
     public ItemsRelationsTableInfo() {
         this(1);
@@ -29,10 +29,10 @@ public class ItemsRelationsTableInfo extends BaseTableInfo {
         super(version);
         mTableName = "items_relation";
         mVersion = version;
-        mCreateTableScript = String.format("CREATE TABLE IF NOT EXISTS %s (" +
+        createTableScript = String.format("CREATE TABLE IF NOT EXISTS %s (" +
                         "%s INTEGER NOT NULL, %s TEXT PRIMARY KEY NOT NULL UNIQUE, %s INTEGER, %s INTEGER)", mTableName,
-                mItemId, mPath, mLevel, mVisible);
+                itemId, path, level, visible);
         //column path should be indexed, in order to perform fast with the LIKE clause
-        mAdditionalScrips.add("CREATE INDEX IF NOT EXISTS " + mPath + "_index ON " + mTableName + "(" + mPath + ")");
+        additionalScrips.add("CREATE INDEX IF NOT EXISTS " + path + "_index ON " + mTableName + "(" + path + ")");
     }
 }

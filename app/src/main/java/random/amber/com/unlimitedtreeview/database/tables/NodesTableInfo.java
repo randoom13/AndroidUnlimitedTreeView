@@ -16,10 +16,10 @@
 package random.amber.com.unlimitedtreeview.database.tables;
 
 public class NodesTableInfo extends BaseTableInfo {
-    public final String mNodeId = "node_id";
-    public final String mPriority = "priority";
-    public final String mName = "name";
-    public final String mIsGroup = "is_group ";
+    public final String nodeId = "node_id";
+    public final String priority = "priority";
+    public final String name = "name";
+    public final String isGroup = "is_group ";
 
     public NodesTableInfo() {
         this(1);
@@ -29,8 +29,8 @@ public class NodesTableInfo extends BaseTableInfo {
         super(version);
         mTableName = "nodes";
         mVersion = version;
-        mCreateTableScript = String.format("CREATE TABLE IF NOT EXISTS %s ("
+        createTableScript = String.format("CREATE TABLE IF NOT EXISTS %s ("
                 + "%s INTEGER PRIMARY KEY NOT NULL, db_name TEXT," +
-                "%s TEXT NOT NULL, %s INTEGER NOT NULL, %s INTEGER)", mTableName, mNodeId, mName, mPriority, mIsGroup);
+                "%s TEXT NOT NULL, %s INTEGER NOT NULL, %s INTEGER)", mTableName, nodeId, name, priority, isGroup);
     }
 }

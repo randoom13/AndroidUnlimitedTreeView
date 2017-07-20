@@ -16,7 +16,7 @@
 package random.amber.com.unlimitedtreeview.database.tables;
 
 public class ExpandedGroupsTableInfo extends BaseTableInfo {
-    public final String mGroupId = "group_id";
+    public final String groupId = "group_id";
     public ExpandedGroupsTableInfo() {
         this(1);
     }
@@ -24,7 +24,7 @@ public class ExpandedGroupsTableInfo extends BaseTableInfo {
     ExpandedGroupsTableInfo(int version) {
         super(version);
         mTableName = "expanded_groups";
-        mCreateTableScript = String.format("CREATE TABLE IF NOT EXISTS %s (" +
-                "%s INTEGER PRIMARY KEY NOT NULL)", mTableName, mGroupId);
+        createTableScript = String.format("CREATE TABLE IF NOT EXISTS %s (" +
+                "%s INTEGER PRIMARY KEY NOT NULL)", mTableName, groupId);
     }
 }

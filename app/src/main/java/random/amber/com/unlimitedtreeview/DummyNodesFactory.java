@@ -21,7 +21,7 @@ import random.amber.com.unlimitedtreeview.database.model.PathHelper;
 import android.text.TextUtils;
 
 final class DummyNodesFactory {
-    private static final int DEFAULT_PRIORITY = 4;
+    private static final int sDEFAULT_PRIORITY = 4;
 
     private static void createNodes(DataBaseHelper dataBaseHelper, String parentPath, int maxLevelCount) {
         int[] path = PathHelper.toArray(parentPath);
@@ -30,7 +30,7 @@ final class DummyNodesFactory {
                 String title = TextUtils.isEmpty(parentPath) ?
                         "root " + index : "node " + parentPath + "," + index;
                 FlatModel node = new FlatModel(path.length + 1 != maxLevelCount, title, true);
-                String newPath = dataBaseHelper.addModel(node, DEFAULT_PRIORITY, path);
+                String newPath = dataBaseHelper.addModel(node, sDEFAULT_PRIORITY, path);
                 createNodes(dataBaseHelper, newPath, maxLevelCount);
             }
     }

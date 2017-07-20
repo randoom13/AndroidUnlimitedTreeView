@@ -16,7 +16,7 @@
 package random.amber.com.unlimitedtreeview.database.tables;
 
 public class FreeNodesTableInfo extends BaseTableInfo {
-    public final String mNodeId = "node_id";
+    public final String nodeId = "node_id";
 
     public FreeNodesTableInfo() {
         this(1);
@@ -26,7 +26,7 @@ public class FreeNodesTableInfo extends BaseTableInfo {
         super(version);
         mTableName = "free_nodes";
         mVersion = version;
-        mCreateTableScript = String.format("CREATE TABLE IF NOT EXISTS %s ("
-                + "%s INTEGER PRIMARY KEY NOT NULL)", mTableName, mNodeId);
+        createTableScript = String.format("CREATE TABLE IF NOT EXISTS %s ("
+                + "%s INTEGER PRIMARY KEY NOT NULL)", mTableName, nodeId);
     }
 }

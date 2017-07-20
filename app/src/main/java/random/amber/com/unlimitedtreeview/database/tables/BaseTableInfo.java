@@ -19,15 +19,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseTableInfo {
-    public String mCreateTableScript;
-    public final List<String> mAdditionalScrips;
+    public String createTableScript;
+    public final List<String> additionalScrips;
 
     protected int mVersion;
     protected String mTableName;
 
     public BaseTableInfo(int version) {
         mVersion = version;
-        mAdditionalScrips = new ArrayList<String>();
+        additionalScrips = new ArrayList<String>();
     }
 
     public int getVersion() {
@@ -39,6 +39,6 @@ public abstract class BaseTableInfo {
     }
 
     public boolean getHasAdditionalScrips() {
-        return !mAdditionalScrips.isEmpty();
+        return !additionalScrips.isEmpty();
     }
 }
