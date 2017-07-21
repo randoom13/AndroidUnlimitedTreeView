@@ -73,8 +73,10 @@ public class TreeCursorAdapter extends RecyclerView.Adapter<TreeViewHolder> {
     }
 
     void closeResources() {
-        if (mCursor != null)
+        if (mCursor != null) {
             mCursor.close();
+            mCursor = null;
+        }
     }
 
 
