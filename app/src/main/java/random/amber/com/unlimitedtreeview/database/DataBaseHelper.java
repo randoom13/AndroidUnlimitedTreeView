@@ -35,8 +35,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private static final String sDATABASE_NAME = "treeManager";
-    private static final int sSCHEMA = 1;
+    private static final String sDatabaseName = "treeManager";
+    private static final int sSchema = 1;
     private String mWorkTableScript;
     private String mFlatListScript;
     private String mUpdateExpandedVisibilityScript;
@@ -51,7 +51,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     public DataBaseHelper(Context context) {
-        this(context, sDATABASE_NAME, sSCHEMA);
+        this(context, sDatabaseName, sSchema);
     }
 
     @Override

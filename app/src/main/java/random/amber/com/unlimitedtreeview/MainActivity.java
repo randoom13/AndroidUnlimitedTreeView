@@ -27,7 +27,7 @@ import random.amber.com.unlimitedtreeview.database.DataBaseHelper;
 
 public class MainActivity extends Activity {
     public static final int MAX_PRIORITY = 255;
-    private static final int sMAX_LEVEL_COUNT = 3;
+    private static final int sMaxLevelCount = 3;
     private RecyclerView mRecyclerView;
     private DataBaseHelper mDataBaseHelper;
     private InitializeRecyclerThread mInitializeRecyclerThread;
@@ -108,11 +108,11 @@ public class MainActivity extends Activity {
 
         @Override
         public void run() {
-            int[] path = new int[sMAX_LEVEL_COUNT];
-            for (int index = 0; index < sMAX_LEVEL_COUNT; index++)
-                path[index] = sMAX_LEVEL_COUNT - 1;
+            int[] path = new int[sMaxLevelCount];
+            for (int index = 0; index < sMaxLevelCount; index++)
+                path[index] = sMaxLevelCount - 1;
             if (!mDataBaseHelper.modelExists(path, MAX_PRIORITY))
-                DummyNodesFactory.createTree(mDataBaseHelper, sMAX_LEVEL_COUNT);
+                DummyNodesFactory.createTree(mDataBaseHelper, sMaxLevelCount);
             final Cursor cursor = mDataBaseHelper.loadList(MAX_PRIORITY, true);
             cursor.getCount();
             if (null != mLoadListener)
