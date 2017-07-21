@@ -43,6 +43,11 @@ public class MainActivity extends Activity {
         mDataBaseHelper = new DataBaseHelper(this.getApplicationContext());
         TreeCursorAdapter adapter = new TreeCursorAdapter(getLayoutInflater(), mDataBaseHelper);
         mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mInitializeRecyclerThread = new InitializeRecyclerThread(mDataBaseHelper);
         mInitializeRecyclerThread.setListener(new LoadListener() {
             @Override

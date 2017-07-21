@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.lang.ref.WeakReference;
-
 import random.amber.com.unlimitedtreeview.database.DataBaseHelper;
 
 public class TreeCursorAdapter extends RecyclerView.Adapter<TreeViewHolder> {
@@ -34,7 +32,7 @@ public class TreeCursorAdapter extends RecyclerView.Adapter<TreeViewHolder> {
             oldCursor.close();
     }
 
-    void changeCursorAfterExpand(Cursor cursor,final int position) {
+    void changeCursorAfterExpand(Cursor cursor, final int position) {
         final int deltaItems = getItemCount() - cursor.getCount();
         if (deltaItems == 0)
             return;
