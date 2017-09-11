@@ -15,10 +15,11 @@
  */
 package random.amber.com.unlimitedtreeview;
 
+import android.text.TextUtils;
+
 import random.amber.com.unlimitedtreeview.database.DataBaseHelper;
 import random.amber.com.unlimitedtreeview.database.model.FlatModel;
 import random.amber.com.unlimitedtreeview.database.model.PathHelper;
-import android.text.TextUtils;
 
 final class DummyNodesFactory {
     private static final int sDefaultPriority = 4;

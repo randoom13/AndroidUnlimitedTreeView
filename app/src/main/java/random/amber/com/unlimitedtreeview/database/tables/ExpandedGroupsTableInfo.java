@@ -17,6 +17,7 @@ package random.amber.com.unlimitedtreeview.database.tables;
 
 public class ExpandedGroupsTableInfo extends BaseTableInfo {
     public final String groupId = "group_id";
+
     public ExpandedGroupsTableInfo() {
         this(1);
     }

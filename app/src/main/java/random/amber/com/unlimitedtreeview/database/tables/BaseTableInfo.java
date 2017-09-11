@@ -19,9 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseTableInfo {
-    public String createTableScript;
     public final List<String> additionalScrips;
-
+    public String createTableScript;
     protected int mVersion;
     protected String mTableName;
 

@@ -23,6 +23,9 @@ import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import android.util.Log;
+
 import random.amber.com.unlimitedtreeview.database.model.FlatModel;
 import random.amber.com.unlimitedtreeview.database.model.FlatModelParser;
 import random.amber.com.unlimitedtreeview.database.model.PathHelper;
@@ -31,8 +34,6 @@ import random.amber.com.unlimitedtreeview.database.tables.ExpandedGroupsTableInf
 import random.amber.com.unlimitedtreeview.database.tables.FreeNodesTableInfo;
 import random.amber.com.unlimitedtreeview.database.tables.ItemsRelationsTableInfo;
 import random.amber.com.unlimitedtreeview.database.tables.NodesTableInfo;
-import android.text.TextUtils;
-import android.util.Log;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String sDatabaseName = "treeManager";

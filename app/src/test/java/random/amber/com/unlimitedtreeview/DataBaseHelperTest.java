@@ -6,14 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 
-import random.amber.com.unlimitedtreeview.database.DataBaseHelper;
-import random.amber.com.unlimitedtreeview.database.model.FlatModel;
-import random.amber.com.unlimitedtreeview.database.model.FlatModelParser;
-import random.amber.com.unlimitedtreeview.database.model.PathHelper;
-import random.amber.com.unlimitedtreeview.database.tables.ExpandedGroupsTableInfo;
-import random.amber.com.unlimitedtreeview.database.tables.ItemsRelationsTableInfo;
-import random.amber.com.unlimitedtreeview.database.tables.NodesTableInfo;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,20 +14,28 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
+import random.amber.com.unlimitedtreeview.database.DataBaseHelper;
+import random.amber.com.unlimitedtreeview.database.model.FlatModel;
+import random.amber.com.unlimitedtreeview.database.model.FlatModelParser;
+import random.amber.com.unlimitedtreeview.database.model.PathHelper;
+import random.amber.com.unlimitedtreeview.database.tables.ExpandedGroupsTableInfo;
+import random.amber.com.unlimitedtreeview.database.tables.ItemsRelationsTableInfo;
+import random.amber.com.unlimitedtreeview.database.tables.NodesTableInfo;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class,  sdk=Build.VERSION_CODES.LOLLIPOP)
-public class DataBaseHelperTest{
+@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
+public class DataBaseHelperTest {
     private static String sTEST_DATABASE_NAME = "testTree";
     private final ItemsRelationsTableInfo mRelations;
     private final NodesTableInfo mNodes;
     private final ExpandedGroupsTableInfo mExpanded;
     private DataBaseHelper mDatebasehelper;
 
-   public DataBaseHelperTest() {
+    public DataBaseHelperTest() {
 
         mRelations = new ItemsRelationsTableInfo();
         mNodes = new NodesTableInfo();

@@ -21,7 +21,6 @@ public class TreeCursorAdapter extends RecyclerView.Adapter<TreeViewHolder> {
         mDataBaseHelper = dataBaseHelper;
     }
 
-
     public void changeCursor(Cursor cursor) {
         if (cursor == mCursor)
             return;
